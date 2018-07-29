@@ -12,6 +12,8 @@ Shader "CubedParadox/Flat Lit Toon"
 		_EmissionMap("Emission Map", 2D) = "white" {}
 		[HDR]_EmissionColor("Emission Color", Color) = (0,0,0,1)
 		_BumpMap("BumpMap", 2D) = "bump" {}
+		[Enum(Off, 0, Front, 1, Back, 2)] _CullMode("Cull", Int) = 0
+		//TODO: Add to custom inspector
 		_Cutoff("Alpha cutoff", Range(0,1)) = 0.5
 
 		// Blending state
@@ -28,6 +30,7 @@ Shader "CubedParadox/Flat Lit Toon"
 		{
 			"RenderType" = "Opaque"
 		}
+		Cull [_CullMode]
 
 		Pass
 		{
@@ -188,5 +191,5 @@ Shader "CubedParadox/Flat Lit Toon"
 		}
 	}
 	FallBack "Diffuse"
-	CustomEditor "FlatLitToonInspector"
+	//CustomEditor "FlatLitToonInspector"
 }
